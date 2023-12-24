@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}   
+
+#board{
+    display: grid;
+    grid-template-columns: repeat(7, 65px);
+    grid-template-rows: repeat(6, 65px);
+    margin-top: 5vh;
+}
+.cell{
+    border: 3px solid black;
+
+    
+}
