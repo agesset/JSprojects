@@ -15,21 +15,33 @@ const winConcditions = [
 let options = ["", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
+initializeGame();
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click",cellClicked))
     restartBtn.addEventListener("click",restartGame);
     statusText.textContent = `${currentPlayer}'s turn`;
+    running = true;
+}
+function cellClicked(){
+    const cellIndex = this.getAttribute("cellIndex");
+    if(options[cellIndex] != "" || !running){
+        return;
+    }
+    updateCell(this,cellIndex);
+    checkWinner();
+
 }
 function updateCell(cell, index){
-
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
 }
 function changePlayer(){
 
 }
-function restartGame(){
+function checkWinner(){
 
 }
-function checkWinner(){
+function restartGame(){
 
 }
