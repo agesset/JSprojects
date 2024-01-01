@@ -1,6 +1,6 @@
 const gameBoard = document.querySelector("#gameBoard");
 const ctx = gameBoard.getContext("2d");
-const scoretext = document.querySelector("#scoreText"); 
+const scoreText = document.querySelector("#scoreText"); 
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
@@ -23,16 +23,18 @@ let snake = [
 
 window.addEventListener("keydown",changeDirection);
 resetBtn.addEventListener("click",restartGame);
-
 gameStart();
-createFood();
-drawFood();
+
 
 function gameStart(){
-
+    running = true;
+    scoreText.textContent = score;
+    createFood();
+    drawFood();
+    nextTick();
 };
-function nextClick(){
-
+function nextTick(){
+   
 };
 function clearBoard(){
 
