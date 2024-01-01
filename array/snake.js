@@ -34,7 +34,16 @@ function gameStart(){
     nextTick();
 };
 function nextTick(){
-   
+   if(running){
+    setTimeout(()=>{
+        clearBoard();
+        drawFood();
+        moveSnake();
+        drawSnake();
+        checkGameOver();
+        nextTick();
+    }, 75);
+   }
 };
 function clearBoard(){
 
