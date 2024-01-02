@@ -66,20 +66,29 @@ function drawFood(){
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
 };
 function moveSnake(){
-
+    const head = {x: snake[0].x + xVelocity,
+                y: snake[0].y + yVelocity};
+    snake.unshift
+    // if food is eaten 
+    if(snake[0].x == foodX && snake[0].y == foodY){
+        score += 1;
+        scoreText.textContent = score;
+        createFood();
+    }
+    else{
+        snake.pop();
+    }
 };
 function drawSnake(){
     ctx.fillStyle = snakeColor;
     ctx.strokeStyle = snakeBorder;
     snake.forEach(snakePart => {
         ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
-        
-
-    })
+        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize)
+    });
 };
 function changeDirection(){
-
+    
 };
 function checkGameOver(){
 
