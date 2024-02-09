@@ -4,10 +4,12 @@ const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const paddle1Color = "forestgreen";
-const paddle2Color = "blue";
+const paddle1Color = "blue";
+const paddle2Color = "red";
 const paddleBorder = "black";
-const ballColor = "yellow"
+const ballColor = "yellow";
+const boardBackground = "green";
+const paddleSpeed = 50;
 ball = {
     x: gameWidth/2,
     y: gameHeight/2,
@@ -41,7 +43,9 @@ resetBtn.addEventListener("click",restartGame);
  * 
  */
 function initGame(){
-
+    //createBall();
+    clearBoard();
+    drawPaddle();
 };
 /**
  * 
@@ -58,7 +62,8 @@ function moveBall(){
 };
 
 function clearBoard(){
-     
+   ctx.fillStyle = boardBackground;
+   ctx.fillRect(0, 0, gameWidth, gameHeight);
 }
 /**
  * 
@@ -78,7 +83,24 @@ function drawPaddle(){
  * 
  */
 function movePaddle(event){
-
+    const keyPressed = event.keyCode;
+    const paddle1Up = 87;
+    const paddle1Down = 83;
+    const paddle2Up = 38;
+    const paddle2Down = 40;
+    switch(keyPressed){
+        case(paddle2Up):
+            if(paddle2.y > 0){
+                paddle2.y -= paddleSpeed;
+            }
+            break;
+        case(paddle2Down):
+            if(paddle2.y > 0){
+                paddle2.y += paddleSpeed;
+            }
+            break;
+    }
+    
 };
 
 /**
